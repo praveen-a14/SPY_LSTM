@@ -99,7 +99,7 @@ predictions_2024 = predictions_2024[:len(dates_2023_2024)]
 actual_prices = np.concatenate([y_train_unscaled, y_test_unscaled, spy_2024_prices])[sequence_length:].flatten()
 predicted_prices = np.concatenate([train_predictions, test_predictions, predictions_2024])[sequence_length:].flatten()
 
-current_date = pd.to_datetime("2024-11-13").tz_localize(None)  
+current_date = pd.to_datetime("now").tz_localize(None) 
 spy_2024['Date'] = spy_2024['Date'].dt.tz_localize(None) 
 current_date_index = (spy_2024['Date'] - current_date).abs().idxmin()
 
